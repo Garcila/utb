@@ -49,7 +49,7 @@ class App extends Component {
         <SearchBar searchVideo={this.searchVideo} />
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
-          select={this.makeSelectedVideo}
+          makeSelectedVideo={this.makeSelectedVideo}
           videos={this.state.videos}
           selectedVideo={this.state.selectedVideo}
         />

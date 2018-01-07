@@ -1,6 +1,7 @@
 import React from 'react';
 
-const VideoDetail = ({ video }) => {
+const VideoDetail = ({video, ...props}) => {
+  const url = 'https://www.youtube.com/embed/';
   return (
     <div>
       {video ? (
@@ -8,8 +9,8 @@ const VideoDetail = ({ video }) => {
           <div className="iframe-container intrinsic-container intrinsic-container-16x9">
             <iframe
               className="video-player"
-              title={`https://www.youtube.com/embed/${video.id.videoId}`}
-              src={`https://www.youtube.com/embed/${video.id.videoId}`}
+              title={`${url}${video.id.videoId}`}
+              src={`${url}${video.id.videoId}`}
               allowFullScreen
             />
           </div>

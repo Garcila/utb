@@ -1,10 +1,10 @@
 import React from 'react';
 
-const VideoListItem = ({ title, thumbnail, select, video }) => {
+const VideoListItem = ({ makeSelectedVideo, video }) => {
   return (
-    <li className="cards" onClick={() => select(video)}>
-      <div className="cards-title">{title}</div>
-      <img src={thumbnail.url} alt={title} />
+    <li className="cards" onClick={() => makeSelectedVideo(video)}>
+      <div className="cards-title">{video.snippet.title}</div>
+      <img src={video.snippet.thumbnails.high.url} alt={video.snippet.title} />
     </li>
   );
 };

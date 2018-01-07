@@ -18,8 +18,8 @@ class App extends Component {
   };
 
   componentDidMount() {
-    YTSearch({ key: API_KEY, term: 'CSS Grid' }, data => {
-      this.setState({ videos: data, selectedVideo: data[0] });
+    YTSearch({ key: API_KEY, term: 'CSS Grid' }, videos => {
+      this.setState({ videos, selectedVideo: videos[0] });
     });
   }
 
@@ -31,7 +31,7 @@ class App extends Component {
     YTSearch(
       { key: API_KEY, term: word },
       _.debounce(
-        videos => this.setState({ videos: videos, selectedVideo: videos[0] }),
+        videos => this.setState({ videos, selectedVideo: videos[0] }),
         800
       )
     );

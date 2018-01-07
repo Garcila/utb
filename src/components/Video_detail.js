@@ -1,22 +1,24 @@
 import React from 'react';
 
 const VideoDetail = ({ video }) => {
-  console.log(video);
-  if(video) {
-    const url = `https://www.youtube.com/embed/${video.id.videoId}`
+  if (video) {
+    const url = `https://www.youtube.com/embed/${video.id.videoId}`;
     return (
-      <div>
-        <iframe title={url} src={url} ></iframe>
-        <div>{video.snippet.title}</div>
-        <div>{video.snippet.description}</div>      
+      <div className="video-detail">
+        <div className="iframe-container intrinsic-container intrinsic-container-16x9">
+          <iframe
+            className="video-player"
+            title={url}
+            src={url}
+            allowFullScreen
+          />
+        </div>
+        <h3>{video.snippet.title}</h3>
+        <p>{video.snippet.description}</p>
       </div>
     );
-  } else {
-    return (
-      <div>Loading...</div>
-    )
   }
-
+  return <div className="loading">Loading...</div>;
 };
 
 export default VideoDetail;

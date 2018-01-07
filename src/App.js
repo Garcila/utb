@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
 import YTSearch from 'youtube-api-search';
 import _ from 'lodash';
 
+import Header from './components/Header';
 import SearchBar from './components/Search_bar';
 import VideoDetail from './components/Video_detail';
 import VideoList from './components/Video_list';
+import Footer from './components/Footer';
 
 const API_KEY = 'AIzaSyAchYhOcuXc6ZWEZ02s3QqEBI3S6VzkYvg';
 
@@ -24,8 +26,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    YTSearch({ key: API_KEY, term: 'CSS Grid' }, data =>
+    YTSearch({ key: API_KEY, term: 'CSS Grid' }, data => {
+      console.log(data);
       this.setState({ videos: data, selectedVideo: data[0] })
+    }
     );
   }
 
@@ -40,19 +44,25 @@ class App extends Component {
 
   makeSelectedVideo(id) {
     const selectedVideo = id;
-    this.setState({selectedVideo});
+    this.setState({ selectedVideo });
   }
 
   render() {
     return (
-      <div>
+      <Fragment>
+        <Header title={'UTB'} mantra={'Video... Devolved'} />
         <SearchBar
           search={this.searchVideo}
           searchTerm={this.state.searchTerm}
         />
         <VideoDetail video={this.state.selectedVideo} />
-        <VideoList selected={this.makeSelectedVideo} videos={this.state.videos} />
-      </div>
+        <VideoList
+          select={this.makeSelectedVideo}
+          videos={this.state.videos}
+          selectedVideo={this.state.selectedVideo}
+        />
+        <Footer />
+      </Fragment>
     );
   }
 }

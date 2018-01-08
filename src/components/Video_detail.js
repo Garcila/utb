@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const VideoDetail = ({video, ...props}) => {
   const url = 'https://www.youtube.com/embed/';
   return (
-    <div>
+    <Fragment>
       {video ? (
         <div className="video-detail">
           <div className="iframe-container intrinsic-container intrinsic-container-16x9">
@@ -20,7 +20,7 @@ const VideoDetail = ({video, ...props}) => {
       ) : (
         <div className="loading">Loading...</div>
       )}
-    </div>
+    </Fragment>
   );
 };
 

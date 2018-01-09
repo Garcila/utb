@@ -148,12 +148,27 @@ img {
 Header:
 --------------------------------------------------------------*/
 
-.header {
+/* .header {
     text-align: center;
-}
+} */
 
 .title {
     font-weight: bolder;
+    display: flex;
+    align-items: baseline;
+}
+
+.title > img {
+    padding: 0.2em;
+    background-color: var(--red);
+    margin: 0.5em 0.5em 0 1em;
+    border-radius: 10%;
+    height: 2em;
+    width: 2em;
+}
+
+h1 {
+    margin: 0;
 }
 
 
@@ -163,6 +178,7 @@ Navigation:
 
 .mantra {
     padding: 0.5em;
+    margin-top: 0em;
     font-size: 1.1em;
     color: white;
     background-color: hsl(0, 0%, 10%);
@@ -351,6 +367,10 @@ CSS Grid layout for wider screens, when browser supports grid:
             padding: 0 1em;
         }
 
+        .title > img {
+            background-color: var(--yellow);
+        }
+
         .mantra {
             background-color: var(--blue);
             color: var(--white);
@@ -425,6 +445,16 @@ CSS Grid layout for wider screens, when browser supports grid:
                 "list    list    list"
                 "footer  footer  footer";
         }
+        .header {
+            margin-bottom: 1em;
+        }
+        .search {
+            margin-bottom: 1em;
+        }
+
+        .title > img {
+            background-color: var(--red);
+        }
         .mantra {
             background-color: var(--red);
         }
@@ -457,8 +487,15 @@ CSS Grid layout for wider screens, when browser supports grid:
               "list    detail    detail"
               "list  footer  footer";
         }
+        body {
+            background-color: var(--background-light);
+        }
         .header {
             background-color: var(--blue);
+            padding-bottom: 2em;
+        }
+        .title > img {
+            background-color: var(--background-light);
         }
         .mantra {
             background-color: var(--yellow);
@@ -467,6 +504,7 @@ CSS Grid layout for wider screens, when browser supports grid:
         .search {
             background-color: var(--background-light);
             border: 1px solid var(--background-light);
+            padding: 2em 0 2em 1em;
         }
         .input_search {
             margin-left: 3em;

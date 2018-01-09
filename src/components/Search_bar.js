@@ -10,16 +10,16 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <form className='search'>
+      <div className='search'>
         <img className='loupe' src='../search.png' alt='search' />
         <input
           type='text'
           value={this.state.word}
-          onChange={e => this.handleInput(e.target.value)} 
+          onChange={e => this.handleInput(e.target.value)}
           className='input_search'
           placeholder="type to search videos"
         />
-      </form>
+      </div>
     );
   }
 };

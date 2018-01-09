@@ -12,10 +12,10 @@ import Footer from './components/Footer';
 const API_KEY = 'AIzaSyAchYhOcuXc6ZWEZ02s3QqEBI3S6VzkYvg';
 
 class App extends Component {
-  state = {
-    videos: [],
-    selectedVideo: null
-  };
+    state = {
+      videos: [],
+      selectedVideo: null
+    };
 
   componentDidMount() {
     YTSearch({ key: API_KEY, term: 'CSS Grid' }, videos => {
@@ -27,7 +27,7 @@ class App extends Component {
     window.scrollTo(0, 0);
   }
 
-  searchVideo = word => {
+  searchVideo = (word) => {
     YTSearch(
       { key: API_KEY, term: word },
       _.debounce(
